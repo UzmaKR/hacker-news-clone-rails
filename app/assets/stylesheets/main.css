@@ -1,0 +1,12 @@
+
+nav {
+  background-color: orange;
+  color: black;
+}
+
+nav ul {
+  list-style-type: none;
+  display: inline;
+  float: left;
+  text-decoration: none;
+}

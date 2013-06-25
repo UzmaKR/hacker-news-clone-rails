@@ -2,6 +2,13 @@ HackerNewsCloneRails::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  root :to => 'posts#index'
+  resources :posts , :only => [:index, :new, :create]
+  resources :users, :only => [:show, :new, :create]
+  resources :comments, :only => [:create]
+
+
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
