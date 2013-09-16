@@ -1,0 +1,8 @@
+
+
+<ol id="posts">
+	<% @posts.each do |post| %>
+  		<li><%= link_to image_tag("grayarrow.gif", alt: "upvote", size: "15x15", class: "upvote"), vote_path(:votes => {imageable_type: "post", imageable_id: post.id, user_id: current_user.id}), method: :post %><%= post.url %></br>
+        by <%= User.find(post.user_id).name %> <%= ((Time.now - post.created_at)/3600).floor %> hours ago | <%= link_to pluralize(post.comment_count, "comment"), post_path(post) %> | <%= pluralize(post.numvotes, "vote") %></li> 
+	<% end %>
+</ol>

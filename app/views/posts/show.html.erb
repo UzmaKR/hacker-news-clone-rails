@@ -1,0 +1,21 @@
+
+<%= @post.url %> 
+by <%= @post.user.name %> <%= ((Time.now - @post.created_at)/3600).floor %> hours ago | <%= link_to pluralize(@post.comments.count,"comments"), post_path(@post) %>
+</br>
+</br>
+<%= form_for @comment do |f| %>
+	<%= f.text_area :content, :cols => "70", :rows => "10" %></br>
+	<%= f.hidden_field :post_id, :value => @post.id %>
+	<%= f.submit %>
+<% end %>
+
+<ul>
+<% @post.comments.each do |comment| %>
+	<li>
+		by <%= comment.user.name %> <%= ((Time.now - comment.created_at)/3600).floor %> hours ago | <%= pluralize(comment.numvotes, "vote") %>
+		</br>
+		<%= link_to image_tag("grayarrow.gif", alt: "upvote", class: "upvote"), vote_path(:votes => {imageable_type: "comment", imageable_id: comment.id, user_id: current_user.id}), method: :post %><%= comment.content %>
+	</li>	
+</br>
+<% end %>
+</ul>

@@ -1,0 +1,9 @@
+#flash_error {
+	background-color: pink;
+	border: 1px solid red; 
+}
+
+#flash_success, #flash_notice {
+	background-color: lightblue;
+	border: 1px solid blue;
+}

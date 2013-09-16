@@ -2,12 +2,19 @@ HackerNewsCloneRails::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'signin', to: 'sessions#new', as: 'signin'
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  get '/users/:id/posts', to: 'posts#posts_per_user', as: 'user_posts'
+  get '/users/:id/comments', to: 'comments#show_user_comments', as: 'user_comments'
   root :to => 'posts#index'
-  resources :posts , :only => [:index, :new, :create]
-  resources :users, :only => [:show, :new, :create]
-  resources :comments, :only => [:create]
+  resources :posts , :only => [:index, :new, :create, :show]
+  resources :users, :only => [:show, :new, :create, :update]
+  resources :comments, :only => [:create, :index]
+  resources :sessions, :only => [:new, :create, :destroy]
 
-
+  post '/vote', to: 'votes#voteup', as: 'vote'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

@@ -1,12 +1,64 @@
 
-nav {
-  background-color: orange;
+#header {
+  background-color: darkorange;
   color: black;
+  overflow: auto;
+  width: 80%;
+  margin: auto;
 }
 
-nav ul {
+#logo {
+	float:left;
+	padding: 15px;
+	border: 1px white solid;
+	margin: 2px 5px 2px 2px;
+	color: white;
+}
+
+#site-title {
+	float: left;
+}
+
+#header ul {
   list-style-type: none;
-  display: inline;
+  margin: 18.72 !important;
+
+}
+
+#header ul li {
+	float: left;
+	padding-right: 10px
+}
+
+#header a {
+	text-decoration: none;
+	color: black;
+}
+
+#left-menu {
   float: left;
-  text-decoration: none;
+  margin: 20px 0 20px 0;
+}
+
+#right-menu {
+	float:right;
+	padding-right: 10px;
+	margin: 20px 10px 20px 100px;
+}
+
+#body-content {
+	width: 80%;
+	margin: auto;
+	background-color: #ECF1EF;
+	height: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#posts {
+	margin: 0;
+}
+
+.upvote {
+	padding-right: 5px;
 }

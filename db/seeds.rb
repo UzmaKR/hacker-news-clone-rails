@@ -21,7 +21,8 @@ end
 @posts = Post.all
 @posts.each do |post|
   5.times do |n|
-    post.comments << Comment.create(content: Faker::Lorem.sentences)
+    post.comments << Comment.create(content: Faker::Lorem.sentences,
+                                    user_id: User.all.sample.id)
   end
   post.comment_count = 5
   post.save
